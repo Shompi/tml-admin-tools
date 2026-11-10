@@ -1,3 +1,4 @@
+import 'package:adminpanel/features/dashboard/dashboard.dart';
 import 'package:adminpanel/shared/customdrawer.dart';
 import 'package:flutter/material.dart';
 
@@ -13,10 +14,11 @@ class _HomePageState extends State<HomePage> {
 
   static const _pages = <Widget>[
     // Reemplazar esto cuando tenga las otras vistas creadas
-    Center(child: Text('Coaches')),
-    Center(child: Text('Coaching Tickets')),
-    Center(child: Text('Students')),
-    Center(child: Text('Posts')),
+    Dashboard(),
+    Center(child: Text('Coaches (NOT IMPLEMENTED)')),
+    Center(child: Text('Coaching Tickets (NOT IMPLEMENTED)')),
+    Center(child: Text('Students (NOT IMPLEMENTED)')),
+    Center(child: Text('Posts (NOT IMPLEMENTED)')),
   ];
 
   @override

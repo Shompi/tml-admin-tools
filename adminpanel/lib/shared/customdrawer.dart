@@ -17,6 +17,7 @@ class AppDrawer extends StatelessWidget {
   final ValueChanged<int> onSelected;
 
   static const items = [
+    DrawerItem('Home', Icons.dashboard),
     DrawerItem('Coaches', Icons.sports_outlined),
     DrawerItem('Coaching Tickets', Icons.confirmation_number_outlined),
     DrawerItem('Students', Icons.school_outlined),
