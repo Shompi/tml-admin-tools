@@ -6,17 +6,7 @@ class Dashboard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsetsGeometry.all(12),
-      child: GridTile(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          spacing: 8.0,
-          children: [
-            Text("HOLA!", style: TextStyle(fontWeight: FontWeight.bold)),
-            Text("HOLA!", style: TextStyle(fontWeight: FontWeight.bold)),
-          ],
-        ),
-      ),
+      padding: EdgeInsetsGeometry.all(0),
     );
   }
 }
