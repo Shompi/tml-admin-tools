@@ -28,7 +28,6 @@ class ClockState extends State<Clock> {
   @override
   void dispose() {
     _timer.cancel();
-    print("Cancelando timer.");
     super.dispose();
   }
 

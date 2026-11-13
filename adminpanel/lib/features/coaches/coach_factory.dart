@@ -19,28 +19,27 @@ class Coach {
     required this.is_active,
     required this.preferred_games,
     required this.skills,
-    required this.socials
+    required this.socials,
   });
 
   factory Coach.fromJson(Map<String, dynamic> json) {
-
     return Coach(
       id: json["id"] as String,
       name: json["name"] as String? ?? "<Coach sin nombre>",
       about_me: json["about_me"] as String?,
       image_url: json["image_url"] as String?,
       is_active: json["is_active"] as bool,
-      preferred_games: List<String>.from(json["preferred_games"] as List? ?? []),
+      preferred_games: List<String>.from(
+        json["preferred_games"] as List? ?? [],
+      ),
       skills: List<String>.from(json["skills"] as List? ?? []),
-      socials: List<String>.from(json["socials"] as List? ?? [])
+      socials: List<String>.from(json["socials"] as List? ?? []),
     );
   }
 }
 
-
 // Get Coaches List
-Future<List<Coach>> fetchCoaches() async {
-
+Future<List<Coach>> getCoaches() async {
   final response = await http.get(
     Uri.parse('https://api.shompiflen.party/coaching/coach'),
     headers: {'Accept': 'application/json'},
@@ -53,6 +52,6 @@ Future<List<Coach>> fetchCoaches() async {
   // print(jsonList);
 
   return jsonList
-    .map((item) => Coach.fromJson(item as Map<String, dynamic>))
-    .toList();
+      .map((item) => Coach.fromJson(item as Map<String, dynamic>))
+      .toList();
 }
