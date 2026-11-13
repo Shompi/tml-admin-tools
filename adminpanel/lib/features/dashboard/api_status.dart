@@ -1,37 +1,21 @@
 import 'dart:convert';
-
-import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 
-class ApiStatus extends StatefulWidget {
-  const ApiStatus({super.key});
-
-  @override
-  _ApiStatusState createState() => _ApiStatusState();
-}
-
-class _ApiStatusState extends State<ApiStatus> {
-  @override
-  Widget build(BuildContext context) {
-    return Container();
-  }
-}
-
-class TMLApiResponse {
+class TMLApiStatus {
   final String message;
   final int code;
   final String date;
   final TMLApiResponseData data;
 
-  const TMLApiResponse({
+  const TMLApiStatus({
     required this.message,
     required this.code,
     required this.date,
     required this.data,
   });
 
-  factory TMLApiResponse.fromJson(Map<String, dynamic> json) {
-    return TMLApiResponse(
+  factory TMLApiStatus.fromJson(Map<String, dynamic> json) {
+    return TMLApiStatus(
       message: json['message'] as String,
       code: json['code'] as int,
       date: json['date'] as String,
@@ -74,9 +58,9 @@ class TMLApiResponseSensors {
   }
 }
 
-Future<TMLApiResponse> getApiStatus() async {
+Future<TMLApiStatus> getApiStatus() async {
   final res = await http.get(Uri.parse("https://api.shompiflen.party"));
   final json = jsonDecode(res.body) as Map<String, dynamic>;
 
-  return TMLApiResponse.fromJson(json);
+  return TMLApiStatus.fromJson(json);
 }

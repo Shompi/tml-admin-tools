@@ -1,3 +1,4 @@
+import 'package:adminpanel/features/dashboard/api_status_widget.dart';
 import 'package:adminpanel/features/dashboard/clock.dart';
 import 'package:flutter/material.dart';
 
@@ -17,6 +18,7 @@ class Dashboard extends StatelessWidget {
             ),
           ),
           Clock(),
+          ApiStatusWidget()
         ],
       ),
     );
