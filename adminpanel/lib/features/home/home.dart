@@ -25,7 +25,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Dashboard")),
+      appBar: AppBar(title: Text("Tetris Moderno Latinoamérica")),
       drawer: AppDrawer(
         selectedIndex: _selectedIndex,
         onSelected: (i) {
