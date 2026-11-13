@@ -1,5 +1,5 @@
 import 'package:adminpanel/features/dashboard/api_status.dart';
-import 'package:flutter/material.dart';
+import 'package:material_ui/material_ui.dart';
 
 class ApiStatusWidget extends StatefulWidget {
   const ApiStatusWidget({super.key});
