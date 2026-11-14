@@ -1,3 +1,4 @@
+import 'package:adminpanel/features/coaches/coach_card.dart';
 import 'package:adminpanel/features/coaches/coach_factory.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -5,10 +6,10 @@ class Coaches extends StatefulWidget {
   const Coaches({super.key});
 
   @override
-  CoachesState createState() => CoachesState();
+  State<Coaches> createState() => _CoachesState();
 }
 
-class CoachesState extends State<Coaches> {
+class _CoachesState extends State<Coaches> {
   late Future<List<Coach>> _coaches;
 
   @override
@@ -24,7 +25,7 @@ class CoachesState extends State<Coaches> {
       future: _coaches,
       builder: (context, snapshot) {
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return CircularProgressIndicator();
+          return Center(child: CircularProgressIndicator());
         }
 
         if (snapshot.hasError) {
@@ -36,36 +37,16 @@ class CoachesState extends State<Coaches> {
         if (snapshot.hasData) {
           final coaches = snapshot.data!;
 
-          return Padding(
-            padding: EdgeInsetsGeometry.all(12.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: coaches.map((coach) {
-                return Card(
-                  child: Text.rich(
-                    style: TextStyle(fontSize: 22),
-                    TextSpan(
-                      text: coach.name,
-                      children: [
-                        TextSpan(text: " "),
-                        TextSpan(
-                          text: coach.id,
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold,
-                            color: Colors.grey.shade500,
-                          ),
-                        ),
-                      ],
-                    ),
-                  ),
-                );
-              }).toList(),
+          return SingleChildScrollView(
+            padding: EdgeInsetsDirectional.only(start: 24, top: 12, end: 32),
+            child: Wrap(
+              spacing: 12,
+              runSpacing: 12,
+              children: [for (final coach in coaches) CoachCard(coach: coach)],
             ),
           );
         }
-
-        return Text("No data was returned.");
+        return Center(child: Text("No data was returned."));
       },
     );
   }

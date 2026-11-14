@@ -39,9 +39,22 @@ class _ApiStatusWidgetState extends State<ApiStatusWidget> {
             );
           }
 
-          return Text(snapshot.data!.message, style: _textStyle);
-        },
-      ),
+          final TMLApiStatus status = snapshot.data!;
+
+          return Padding(
+              padding: EdgeInsetsGeometry.all(64),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                spacing: 8,
+                children: [
+                  Text("(Green Emoji)", style: _textStyle,),
+                  Text(status.message, style: _textStyle),
+                  Text(status.data.sensors.cpu_temp.first, style: _textStyle),
+                ],
+              ),
+            );
+        }
+      )
     );
   }
 }

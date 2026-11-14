@@ -26,17 +26,19 @@ class AppDrawer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return NavigationDrawer(
       selectedIndex: selectedIndex,
       onDestinationSelected: onSelected,
-      footer: Text(
-        "© ShompiFlen - 2026",
-        textAlign: TextAlign.center,
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.grey.shade600,
-          fontSize: 16,
+      footer: Padding(
+        padding: EdgeInsetsGeometry.only(bottom: 12.0),
+        child: Text(
+          "© ShompiFlen - 2026",
+          textAlign: TextAlign.center,
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.grey.shade600,
+            fontSize: 16,
+          ),
         ),
       ),
       children: [
@@ -47,7 +49,7 @@ class AppDrawer extends StatelessWidget {
         for (final item in items)
           NavigationDrawerDestination(
             icon: Icon(item.icon),
-            label: Text(item.title, style: TextStyle(fontSize: 18),),
+            label: Text(item.title, style: TextStyle(fontSize: 18)),
           ),
       ],
     );
