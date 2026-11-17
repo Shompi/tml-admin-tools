@@ -22,10 +22,18 @@ class _HomePageState extends State<HomePage> {
     Center(child: Text('Posts (NOT IMPLEMENTED)')),
   ];
 
+  static const _pageTitles = <Text>[
+    Text("Dashboard"),
+    Text("Coaches"),
+    Text("Tickets de Coaching"),
+    Text("Estudiantes"),
+    Text("Posts de la Página")
+  ];
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Tetris Moderno Latinoamérica")),
+      appBar: AppBar(title: _pageTitles[_selectedIndex],),
       drawer: AppDrawer(
         selectedIndex: _selectedIndex,
         onSelected: (i) {

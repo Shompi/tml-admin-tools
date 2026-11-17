@@ -18,7 +18,7 @@ class Dashboard extends StatelessWidget {
             ),
           ),
           Clock(),
-          ApiStatusWidget()
+          ApiStatusWidget(),
         ],
       ),
     );
