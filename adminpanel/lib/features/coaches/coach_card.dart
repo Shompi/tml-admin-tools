@@ -17,7 +17,7 @@ class _CoachCardState extends State<CoachCard> {
   Widget build(BuildContext context) {
     final theme = Theme.of(context);
     final coach = widget.coach;
-    final _isActive = coach.is_active ? "Si" : "No";
+    final isActive = coach.is_active ? "Si" : "No";
     final glowColor = theme.colorScheme.primary;
 
     return ConstrainedBox(
@@ -71,7 +71,7 @@ class _CoachCardState extends State<CoachCard> {
                             ),
                           ),
                           Text(
-                            "Activo: $_isActive",
+                            "Activo: $isActive",
                             style: theme.textTheme.bodyMedium?.copyWith(
                               fontWeight: FontWeight.bold,
                               color: coach.is_active ? Colors.green.shade200 : Colors.red.shade500
