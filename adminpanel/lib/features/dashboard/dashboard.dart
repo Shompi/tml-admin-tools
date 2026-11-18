@@ -9,13 +9,6 @@ class Dashboard extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Text(
-            "Hora Actual",
-            style: TextStyle(
-              color: Color.fromARGB(100, 100, 100, 0),
-              fontSize: 48,
-            ),
-          ),
           ApiStatusWidget(),
         ],
       ),

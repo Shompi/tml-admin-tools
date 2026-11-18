@@ -10,8 +10,9 @@ class ApiStatusWidget extends StatefulWidget {
 
 class _ApiStatusWidgetState extends State<ApiStatusWidget> {
   late Future<TMLApiStatus> _apiStatus;
-  final TextStyle _textStyle = TextStyle(
-    color: Colors.amberAccent,
+
+  final TextStyle _apiErrorTextStyle = TextStyle(
+    color: Colors.red,
     fontWeight: FontWeight.bold,
     fontSize: 36,
   );
@@ -35,26 +36,86 @@ class _ApiStatusWidgetState extends State<ApiStatusWidget> {
           if (snapshot.hasError) {
             return Text(
               "Ocurrió un error al conectar con la API, ¿La api está offline?",
-              style: _textStyle,
+              style: _apiErrorTextStyle,
             );
           }
 
-          final TMLApiStatus status = snapshot.data!;
+          final TMLApiStatus _status = snapshot.data!;
 
-          return Padding(
-              padding: EdgeInsetsGeometry.all(64),
-              child: Row(
+          return APIStatusCard(status: _status);
+        },
+      ),
+    );
+  }
+}
+
+class APIStatusCard extends StatelessWidget {
+  final TMLApiStatus _status;
+
+  final TextStyle _apiNormalTextStyle = TextStyle(
+    color: Colors.amber,
+    fontSize: 48,
+    fontWeight: FontWeight.bold,
+  );
+
+  final TextStyle _apiSubTextFontStyle = TextStyle(
+    color: const Color.fromARGB(171, 255, 214, 64),
+    fontSize: 32,
+    fontWeight: FontWeight.w900,
+  );
+
+  final TextStyle _apiStatusCodeTextStyle = TextStyle(
+    color: const Color.fromARGB(143, 33, 149, 243),
+    fontSize: 32,
+    fontWeight: FontWeight.w900,
+  );
+
+  new({super.key, required this._status});
+
+  @override
+  Widget build(BuildContext context) {
+    return Center(
+      child: SizedBox(
+        height: 600,
+        width: 800,
+        child: Padding(
+          padding: EdgeInsets.all(12),
+          child: Wrap(
+            alignment: WrapAlignment.center,
+            crossAxisAlignment: WrapCrossAlignment.center,
+            children: [
+              Row(
                 mainAxisAlignment: MainAxisAlignment.center,
-                spacing: 8,
+                crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Text("(Green Emoji)", style: _textStyle,),
-                  Text(status.message, style: _textStyle),
-                  Text(status.data.sensors.cpu_temp.first, style: _textStyle),
+                  Icon(Icons.circle, color: Colors.green, size: 48),
+                  Text(_status.message, style: _apiNormalTextStyle, textAlign: TextAlign.center,),
                 ],
               ),
-            );
-        }
-      )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Center(
+                    child: Column(
+                      spacing: 8,
+                      children: [
+                        Text(
+                          _status.data.sensors.cpu_temp.first,
+                          style: _apiSubTextFontStyle,
+                        ),
+                        Text(
+                          _status.code.toString(),
+                          style: _apiStatusCodeTextStyle,
+                        ),
+                      ],
+                    ),
+                  ),
+                ],
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }
