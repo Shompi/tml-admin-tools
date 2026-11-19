@@ -40,9 +40,9 @@ class _ApiStatusWidgetState extends State<ApiStatusWidget> {
             );
           }
 
-          final TMLApiStatus _status = snapshot.data!;
+          final TMLApiStatus status = snapshot.data!;
 
-          return APIStatusCard(status: _status);
+          return APIStatusCard(status: status);
         },
       ),
     );
