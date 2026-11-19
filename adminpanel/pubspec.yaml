@@ -37,6 +37,7 @@ dependencies:
   http: ^1.6.0
 
   material_ui: any
+  flutter_quill: ^11.6.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
