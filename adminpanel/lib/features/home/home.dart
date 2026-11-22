@@ -23,13 +23,13 @@ class _HomePageState extends State<HomePage> {
     Postmanager(),
   ];
 
-  static const _pageTitles = <Text>[
-    Text("Dashboard"),
-    Text("Coaches"),
-    Text("Tickets de Coaching"),
-    Text("Estudiantes"),
-    Text("Posts de la Página")
-  ];
+  // static const _pageTitles = <Text>[
+  //   Text("Dashboard"),
+  //   Text("Coaches"),
+  //   Text("Tickets de Coaching"),
+  //   Text("Estudiantes"),
+  //   Text("Posts de la Página")
+  // ];
 
 
 
