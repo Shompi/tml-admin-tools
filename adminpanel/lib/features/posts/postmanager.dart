@@ -29,18 +29,30 @@ class _PostmanagerState extends State<Postmanager> {
               children: [
                 QuillSimpleToolbar(
                   controller: _quillController,
-                  config: const QuillSimpleToolbarConfig(
-                    showBackgroundColorButton: true,
-                    showColorButton: true,
-                    color: Colors.red,
+                  config: QuillSimpleToolbarConfig(
+                    buttonOptions: QuillSimpleToolbarButtonOptions(
+                      fontFamily: QuillToolbarFontFamilyButtonOptions(
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      fontSize: QuillToolbarFontSizeButtonOptions(
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      selectHeaderStyleDropdownButton:
+                          QuillToolbarSelectHeaderStyleDropdownButtonOptions(
+                            textStyle: TextStyle(color: Colors.white),
+                          ),
+                    ),
                   ),
                 ),
                 Expanded(
                   child: QuillEditor.basic(
                     controller: _quillController,
-                    config: const QuillEditorConfig(),
+                    config: QuillEditorConfig(
+                      minHeight: 500.0,
+                    ),
                   ),
                 ),
+                Text("PRUEBA DE TEXTO"),
               ],
             ),
           ),

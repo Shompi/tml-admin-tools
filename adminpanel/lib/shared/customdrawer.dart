@@ -36,7 +36,7 @@ class AppDrawer extends StatelessWidget {
           textAlign: TextAlign.center,
           style: TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.grey.shade600,
+            color: Colors.amberAccent.shade700,
             fontSize: 16,
           ),
         ),

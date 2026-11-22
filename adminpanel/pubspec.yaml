@@ -38,6 +38,9 @@ dependencies:
 
   material_ui: any
   flutter_quill: ^11.6.0
+  flutter_localizations:
+    sdk: flutter
+  cupertino_ui: ^1.1.7
 dev_dependencies:
   flutter_test:
     sdk: flutter
