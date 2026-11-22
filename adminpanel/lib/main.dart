@@ -1,4 +1,5 @@
 import 'package:adminpanel/features/home/home.dart';
+import 'package:flutter_quill/flutter_quill.dart';
 import 'package:material_ui/material_ui.dart';
 
 void main() {
@@ -13,6 +14,10 @@ class TMLDashboard extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Tetris Moderno Latinoamerica Dashboard',
+      localizationsDelegates: const [
+        GlobalMaterialLocalizations.delegate,
+        FlutterQuillLocalizations.delegate,
+      ],
       home: const HomePage(),
       theme: ThemeData(
         useMaterial3: true,

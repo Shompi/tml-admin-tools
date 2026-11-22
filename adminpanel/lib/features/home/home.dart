@@ -2,6 +2,7 @@ import 'package:adminpanel/features/coaches/coaches.dart';
 import 'package:adminpanel/features/dashboard/dashboard.dart';
 import 'package:adminpanel/shared/customdrawer.dart';
 import 'package:material_ui/material_ui.dart';
+import 'package:adminpanel/features/posts/postmanager.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -19,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     Coaches(),
     Center(child: Text('Coaching Tickets (NOT IMPLEMENTED)')),
     Center(child: Text('Students (NOT IMPLEMENTED)')),
-    Center(child: Text('Posts (NOT IMPLEMENTED)')),
+    Postmanager(),
   ];
 
   static const _pageTitles = <Text>[
@@ -30,10 +31,11 @@ class _HomePageState extends State<HomePage> {
     Text("Posts de la Página")
   ];
 
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: _pageTitles[_selectedIndex],),
       drawer: AppDrawer(
         selectedIndex: _selectedIndex,
         onSelected: (i) {

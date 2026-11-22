@@ -9,6 +9,7 @@ class Dashboard extends StatelessWidget {
     return Center(
       child: Column(
         children: [
+          AppBar(title: Text("Dashboard")),
           ApiStatusWidget(),
         ],
       ),
