@@ -2,14 +2,14 @@ import 'dart:convert';
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:material_ui/material_ui.dart';
 
-class Postmanager extends StatefulWidget {
+class PostManager extends StatefulWidget {
   const new({super.key});
 
   @override
-  State<Postmanager> createState() => _PostmanagerState();
+  State<PostManager> createState() => _PostManagerState();
 }
 
-class _PostmanagerState extends State<Postmanager> {
+class _PostManagerState extends State<PostManager> {
   final QuillController _quillController = QuillController.basic();
 
   @override
@@ -19,6 +19,7 @@ class _PostmanagerState extends State<Postmanager> {
   }
 
   void saveToJson() {
+
     final String json = jsonEncode(
       _quillController.document.toDelta().toJson(),
     );

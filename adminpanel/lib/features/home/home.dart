@@ -20,7 +20,7 @@ class _HomePageState extends State<HomePage> {
     Coaches(),
     Center(child: Text('Coaching Tickets (NOT IMPLEMENTED)')),
     Center(child: Text('Students (NOT IMPLEMENTED)')),
-    Postmanager(),
+    PostManager(),
   ];
 
   // static const _pageTitles = <Text>[
