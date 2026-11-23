@@ -1,6 +1,4 @@
 import 'dart:convert';
-import 'dart:ui';
-
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -24,7 +22,6 @@ class _PostmanagerState extends State<Postmanager> {
     final String json = jsonEncode(
       _quillController.document.toDelta().toJson(),
     );
-    final String text = _quillController.document.toPlainText();
   }
 
   @override

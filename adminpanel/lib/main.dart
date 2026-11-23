@@ -23,7 +23,7 @@ class TMLDashboard extends StatelessWidget {
       home: const HomePage(),
       theme: ThemeData(
         useMaterial3: true,
-        colorSchemeSeed: Colors.amber,
+        colorSchemeSeed: Colors.blue,
         brightness: Brightness.dark,
       ),
     );
