@@ -1,4 +1,5 @@
 import 'dart:convert';
+
 import 'package:flutter_quill/flutter_quill.dart';
 import 'package:material_ui/material_ui.dart';
 
@@ -18,7 +19,21 @@ class _PostManagerState extends State<PostManager> {
     super.dispose();
   }
 
-  void saveToJson() {
+  void saveToJson(BuildContext context) {
+    ScaffoldMessenger.of(context).showMaterialBanner(
+      MaterialBanner(
+        content: Text("This action is not implemented yet."),
+        actions: [
+          TextButton(
+            onPressed: () => {
+              ScaffoldMessenger.of(context).hideCurrentMaterialBanner(),
+            },
+            child: Text("OK"),
+          ),
+        ],
+        contentTextStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+      ),
+    );
 
     final String json = jsonEncode(
       _quillController.document.toDelta().toJson(),
@@ -64,10 +79,15 @@ class _PostManagerState extends State<PostManager> {
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: [
                     ElevatedButton(
-                      onPressed: saveToJson,
+                      onPressed: () => saveToJson(context),
                       style: ElevatedButton.styleFrom(
                         fixedSize: Size(200, 50),
-                        backgroundColor: const Color.fromARGB(150, 104, 58, 183),
+                        backgroundColor: const Color.fromARGB(
+                          150,
+                          104,
+                          58,
+                          183,
+                        ),
                         textStyle: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 16,
@@ -81,7 +101,7 @@ class _PostManagerState extends State<PostManager> {
                       ),
                     ),
                     ElevatedButton(
-                      onPressed: saveToJson,
+                      onPressed: () => {},
                       style: ElevatedButton.styleFrom(
                         fixedSize: Size(200, 50),
                         backgroundColor: const Color.fromARGB(150, 244, 67, 54),
